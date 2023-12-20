@@ -1,0 +1,118 @@
+## 例：test_app_cashnyan　ターミナルでまず作成
+lumi@USERnoiMac ~ % cd Desktop
+lumi@USERnoiMac Desktop % mkdir test_app_cashnyan
+lumi@USERnoiMac Desktop % cd test_app_cashnyan 
+lumi@USERnoiMac test_app_cashnyan % mkdir server
+lumi@USERnoiMac test_app_cashnyan % ls でserverが出ればOK
+serverフォルダにserver.jsファイルを作成する（ファイルがないとpushできない）
+
+## VSCodeでGithubリモート、ローカルリポジトリを作成
+- リポジトリの作成
+- ブランチ、pushの連携確認
+
+## 連携が取れてからNext.jsをインストール
+lumi@USERnoiMac test_app_cashnyan % npx create-next-app client
+✔ Would you like to use TypeScript? … No / Yes
+✔ Would you like to use ESLint? … No / Yes
+✔ Would you like to use Tailwind CSS? … No / Yes
+✔ Would you like to use `src/` directory? … No / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes
+✔ Would you like to customize the default import alias (@/*)? … No / Yes
+Creating a new Next.js app in /Users/lumi/Desktop/test_app_cashnyan/client.
+
+Using npm.
+
+Initializing project with template: default-tw 
+
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+- autoprefixer
+- postcss
+- tailwindcss
+- eslint
+- eslint-config-next
+
+
+added 326 packages, and audited 327 packages in 23s
+
+117 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Initialized a git repository.
+
+Success! Created client at /Users/lumi/Desktop/test_app_cashnyan/client
+
+A new version of `create-next-app` is available!
+You can update by running: npm i -g create-next-app
+
+lumi@USERnoiMac test_app_cashnyan % ls
+client	server
+
+## 一旦pushし、ディレクトリの差分がないのが確認できたらserverに移動
+
+## serverフォルダ上でnpm init
+lumi@USERnoiMac test_app_cashnyan % cd server
+lumi@USERnoiMac server % npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (server) 
+version: (1.0.0) 
+description: 
+entry point: (index.js) server.js
+test command: 
+git repository: 
+keywords: 
+author: 
+license: (ISC) 
+About to write to /Users/lumi/Desktop/test_app_cashnyan/server/package.json:
+
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) 
+lumi@USERnoiMac server % lsで、package.jsonとserver.jsがあればOK
+
+## カレントserverをclearし、ルートディレクトリに戻る
+lumi@USERnoiMac server % clear
+lumi@USERnoiMac server % cd
+lumi@USERnoiMac ~ % cd Desktop
+lumi@USERnoiMac Desktop % cd test_app_cashnyan 
+lumi@USERnoiMac test_app_cashnyan % code .
+lumi@USERnoiMac test_app_cashnyan % 
+
+
+
+
+## serverフォルダの設定（Express,Node.js）バックエンド　
+- server.js(起動はnpm run devの3004/api/home)
+
+## clientフォルダの設定（React, Next.js） フロントエンド
+- localhost:3000（起動はnpm run devでpages/index.js（デフォルトではNext公式サイト））
+- 公式サイトのデフォルトレイアウト（api/index.jsコード、sytles/globals.cssのTailwindセッティング以降を削除）
+
+## バックエンドとフロントエンドをローカルホストで表示できるようfetchする
+- cd server で　npm i corsと、server.jsでrequireする
