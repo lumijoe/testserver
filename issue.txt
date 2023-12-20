@@ -97,6 +97,7 @@ Is this OK? (yes)
 lumi@USERnoiMac server % lsで、package.jsonとserver.jsがあればOK
 serverカレントのまま、npm install nodemon をしてホットリロード設定をする
 - package.json内の"start": "node server.js"を、"nodemon server"に変更する
+- "dev": "nodemon server"を追加する
 - package-lock.jsonが生成される
 - その後に、npm installで依存関係をメンテナンスしておく
 
