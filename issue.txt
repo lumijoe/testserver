@@ -95,6 +95,10 @@ About to write to /Users/lumi/Desktop/test_app_cashnyan/server/package.json:
 
 Is this OK? (yes) 
 lumi@USERnoiMac server % lsで、package.jsonとserver.jsがあればOK
+serverカレントのまま、npm install nodemon をしてホットリロード設定をする
+- package.json内の"start": "node server.js"を、"nodemon server"に変更する
+- package-lock.jsonが生成される
+- その後に、npm installで依存関係をメンテナンスしておく
 
 ## カレントserverをclearし、ルートディレクトリに戻る
 lumi@USERnoiMac server % clear
